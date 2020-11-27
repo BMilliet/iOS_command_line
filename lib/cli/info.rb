@@ -26,6 +26,14 @@ module CLI
       self.user_config_yml[:selected]
     end
 
+    def self.user_selected_project_name()
+      self.user_config_yml[:selected][:name]
+    end
+
+    def self.user_projects_names()
+      self.user_config_yml[:ios_projs].map{ |e| e[:name] }
+    end
+
     def self.user_has_project?()
       !self.user_projects.empty?
     end

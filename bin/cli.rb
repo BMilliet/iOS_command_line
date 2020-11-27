@@ -6,4 +6,4 @@ Dir.chdir __dir__
 Dir.chdir '../'
 
 CLI::Config.setup
-CLI::Command.run
+# CLI::Command.run WIP

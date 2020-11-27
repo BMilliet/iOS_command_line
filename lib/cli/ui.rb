@@ -15,8 +15,8 @@ module CLI
     def self.select_option(options)
       options.each_with_index { |e, i| puts "#{i} => #{e}" }
       puts "\nchoose option number:"
-      choosen = gets.chomp.to_i
-      abort "out of range" if choosen > options.length or choosen < 0
+      choosen = STDIN.gets.chomp.to_i
+      abort "out of range" if choosen >= options.length or choosen < 0
       options[choosen]
     end
   end
