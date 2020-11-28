@@ -8,6 +8,8 @@ module CLI
     def self.setup
       Dir.mkdir Info.cli_out unless File.exists? Info.cli_out
       Dir.mkdir Info.user_data unless File.exists? Info.user_data
+      Dir.mkdir Info.user_builds unless File.exists? Info.user_builds
+      Dir.mkdir Info.user_temp unless File.exists? Info.user_temp
 
       unless File.exists? Info.user_config
         yml = { ios_projs: [], selected: nil }
