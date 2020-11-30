@@ -50,6 +50,10 @@ module CLI
       self.user_config_yml[:selected][:path]
     end
 
+    def self.user_selected_project_bundle_id()
+      self.user_config_yml[:selected][:bundle_id]
+    end
+
     def self.user_projects_names()
       self.user_config_yml[:ios_projs].map{ |e| e[:name] }
     end
