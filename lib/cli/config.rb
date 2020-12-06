@@ -28,12 +28,10 @@ module CLI
 
     def self.add_project()
       UI.log 'Add new project', 'blue'
-      UI.log 'Enter project path:', 'blue'
-      path = STDIN.gets.chomp.to_s
-      UI.log 'Enter project name:', 'blue'
-      name = STDIN.gets.chomp.to_s
-      UI.log 'Enter project bundle id:', 'blue'
-      bundle_id = STDIN.gets.chomp.to_s
+      # WIP validate path with xcodeproj dir and get project name
+      path = Utils.user_input 'Enter project path:'
+      name = Utils.user_input 'Enter project name:'
+      bundle_id = Utils.user_input 'Enter project bundle id:'
       new = {name: name, bundle_id: bundle_id, path: path}
       yml = YAML::load_file Info.user_config
       yml[:ios_projs] << new

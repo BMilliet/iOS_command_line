@@ -4,7 +4,7 @@ module CLI
       attr_reader :verbose 
 
       def self.description()
-        'Can launch latest build and simulators.'
+        'Runs latest selected app build on booted simulator'
       end
 
       def run(options)

@@ -5,13 +5,10 @@ module CLI
       require_relative '../utils'
       require_relative '../ui'
 
-      @description = "Builds apps Swift, Xibs and Storyboard files.\
-      \nConfigurate Info.plist file for app bundle."
-
       attr_reader :verbose, :proj_name, :proj_path, :proj_bundle_id
 
       def self.description()
-        @description
+        'Builds selected app and generate bundle.'
       end
 
       def run(options)
@@ -22,12 +19,14 @@ module CLI
 
         UI.log "Build app #{@proj_name}...", 'blue'
 
-        self.clear_temp
-        self.prepare_bundle
-        self.build_swift_files
-        self.build_xibs_and_storyboards
-        self.generate_plist
-        self.handle_resources
+        puts options
+
+#        self.clear_temp
+#        self.prepare_bundle
+#        self.build_swift_files
+#        self.build_xibs_and_storyboards
+#        self.generate_plist
+#        self.handle_resources
 
         UI.log 'Build done.', 'blue'
       end
