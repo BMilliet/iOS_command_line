@@ -64,7 +64,7 @@ module CLI
         Utils.sh "cp #{@proj_path}/#{@proj_name}/Info.plist #{Info.user_temp_full}/Info.plist", @verbose
 
         set_CFBundleExecutable = "Set :CFBundleExecutable #{@proj_name}"
-        set_CFBundleIdentifier = "Set :CFBundleIdentifier #{@proj_bundle_id}"
+        set_CFBundleIdentifier = "Set :CFBundleIdentifier #{@proj_bundle_id}.#{@proj_name}"
         set_CFBundleName = "Set :CFBundleName #{@proj_name}"
         set_CFBundlePackageType = 'Set :CFBundlePackageType APPL'
         set_UIAppSceneManifest = "Set :UIApplicationSceneManifest:UISceneConfigurations:UIWindowSceneSessionRoleApplication:0:UISceneDelegateClassName #{@proj_name}.SceneDelegate"
