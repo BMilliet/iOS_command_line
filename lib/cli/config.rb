@@ -11,8 +11,7 @@ module CLI
       if Info.user_selected_project.nil?
         Info.user_has_project? ? self.select_project : self.add_project
       end
-
-      UI.log "Current project: #{Info.user_selected_project_name}", 'blue'
+      self.current_project
     end
 
     def self.setup_basic_dirs()
@@ -28,12 +27,10 @@ module CLI
     end
 
     def self.add_project()
-      UI.log "You dont have any project registered\nAdd ios project root dir full path:", 'blue'
-      path = STDIN.gets.chomp.to_s
-      UI.log 'Enter project name:'
-      name = STDIN.gets.chomp.to_s
-      UI.log = 'Enter project bundle id:'
-      bundle_id = STDIN.gets.chomp.to_s
+      UI.log 'Add new project', 'blue'
+      path = Utils.user_input 'Enter project path:'
+      name = Utils.user_input 'Enter project name:'
+      bundle_id = Utils.user_input 'Enter project bundle id:'
       new = {name: name, bundle_id: bundle_id, path: path}
       yml = YAML::load_file Info.user_config
       yml[:ios_projs] << new
@@ -48,6 +45,10 @@ module CLI
       yml = YAML::load_file Info.user_config
       yml[:selected] = selected
       self.save_user_config yml
+    end
+
+    def self.current_project()
+      UI.log "Current project: #{Info.user_selected_project_name}", 'blue'
     end
 
     private

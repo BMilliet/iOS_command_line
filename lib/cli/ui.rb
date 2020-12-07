@@ -16,7 +16,11 @@ module CLI
       options.each_with_index { |e, i| puts "#{i} => #{e}" }
       puts "\nchoose option number:"
       choosen = STDIN.gets.chomp.to_i
-      abort "out of range" if choosen >= options.length or choosen < 0
+
+      if choosen >= options.length or choosen < 0
+        UI.log 'Item out of range', 'red'
+        abort
+      end
       options[choosen]
     end
   end
