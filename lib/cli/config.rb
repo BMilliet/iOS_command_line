@@ -28,7 +28,6 @@ module CLI
 
     def self.add_project()
       UI.log 'Add new project', 'blue'
-      # WIP validate path with xcodeproj dir and get project name
       path = Utils.user_input 'Enter project path:'
       name = Utils.user_input 'Enter project name:'
       bundle_id = Utils.user_input 'Enter project bundle id:'
