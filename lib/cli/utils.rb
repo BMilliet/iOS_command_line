@@ -8,14 +8,14 @@ module CLI
       STDIN.gets.chomp.to_s
     end
 
-    def self.sh(command, verbose=false)
+    def self.sh(command, verbose=false, debug=false)
       UI.log command, 'pink' if verbose
-      %x[#{command}]
+      debug ? command : %x[#{command}]
     end
 
-    def self.clear_dir(path, verbose=false)
+    def self.clear_dir(path, verbose=false, debug=false)
       if !path.include?('..') && path.include?(Info.user_data)
-        self.sh "rm -r #{path}/*", verbose
+        self.sh "rm -r #{path}/*", verbose, debug
       else
         UI.log 'Invalid path', 'red'
         abort

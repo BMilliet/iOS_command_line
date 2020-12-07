@@ -13,6 +13,7 @@ module CLI
         opt.banner = 'Usage: cli.rb [command]=<param> [subcommand]'
         opt.separator ''
         opt.on('-v', '--[no-]verbose', 'Run verbosely') { |v| options[:verbose] = v }
+        opt.on('-d', '--debug', 'Run in debug mode, wont execute commands only print logs') { |d| options[:debug] = d }
         opt.on('-r', '--run', Launch.description) { |c| options[:command] = c; main = Launch.new }
         opt.on('-b', '--build', Build.description) { |c| options[:command] = c; main = Build.new }
         opt.on('-p', '--project=PARAM', Project.description) { |c| options[:command] = c; main = Project.new }
